@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     function () {
       gruntTextReplace.replace({
         src: this.data.src,
-        dest: this.data.dest,
+        dest: typeof this.data.dest === 'function' ? this.data.dest() : this.data.dest,
         overwrite: this.data.overwrite,
         replacements: this.data.replacements
       });
